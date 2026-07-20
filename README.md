@@ -2,11 +2,11 @@
 
 A Python and Streamlit application for exploring Brookfield leadership data through an interactive searchable directory.
 
-The project combines web scraping, data processing, and an interactive dashboard to make publicly available leadership information easier to search and analyze.
+This project combines web scraping, data processing, and data visualization to create a searchable leadership database built from publicly available Brookfield leadership profiles.
 
 ---
 
-## Features
+# Features
 
 - Search leaders by name
 - Search leaders by title
@@ -15,32 +15,68 @@ The project combines web scraping, data processing, and an interactive dashboard
 - Filter by business sector
 - Filter by region
 - Generate likely Brookfield email addresses
-- One-click LinkedIn search links
+- LinkedIn search integration
 - Direct links to Brookfield profile pages
 - Interactive Streamlit dashboard
 
 ---
 
-## Repository Contents
+# Repository Structure
 
 ```text
-brookfield_directory.py    Streamlit dashboard
-brookfield_scraper.py      Brookfield leadership scraper
-brookfield_leaders.json    Leadership dataset
-requirements.txt           Python dependencies
-README.md                  Documentation
+brookfield_directory.py     Streamlit application
+brookfield_scraper.py       Leadership scraper
+brookfield_leaders.json     Leadership dataset
+requirements.txt            Python dependencies
+README.md                   Project documentation
 ```
 
 ---
 
-## Installation
+# How the Project Works
 
-Clone the repository:
+The project consists of two components:
+
+## 1. Data Collection
+
+The scraper collects publicly available leadership information from Brookfield's website.
+
+Run:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/brookfield-leadership-directory.git
-cd brookfield-leadership-directory
+python brookfield_scraper.py
 ```
+
+This generates:
+
+```text
+brookfield_leaders.json
+```
+
+The dataset contains:
+
+- Name
+- Title
+- Biography
+- Brookfield profile URL
+
+---
+
+## 2. Leadership Directory
+
+The Streamlit application reads the dataset and creates an interactive searchable directory.
+
+The application depends on:
+
+```text
+brookfield_leaders.json
+```
+
+If the JSON file is missing, the application will not run.
+
+---
+
+# Quick Start
 
 Install dependencies:
 
@@ -48,36 +84,57 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
----
-
-## Running the Application
-
-Launch the Streamlit application:
+Launch the application:
 
 ```bash
 streamlit run brookfield_directory.py
 ```
 
-The application will open automatically in your browser.
+The repository already includes a generated dataset (`brookfield_leaders.json`), so the scraper does not need to be executed before running the application.
 
 ---
 
-## Data Source
+# Regenerating the Dataset
 
-The leadership data is sourced from publicly available Brookfield leadership profile pages:
+If you want to refresh the leadership data:
 
-https://www.brookfield.com/about-us/leadership
+Generate a new dataset:
 
-The dataset includes:
+```bash
+python brookfield_scraper.py
+```
 
-- Name
-- Title
-- Biography
-- Profile URL
+Then launch the directory:
+
+```bash
+streamlit run brookfield_directory.py
+```
 
 ---
 
-## Technologies Used
+# Example Workflow
+
+### Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Generate a fresh dataset (optional)
+
+```bash
+python brookfield_scraper.py
+```
+
+### Launch the application
+
+```bash
+streamlit run brookfield_directory.py
+```
+
+---
+
+# Technologies Used
 
 - Python
 - Streamlit
@@ -86,18 +143,27 @@ The dataset includes:
 
 ---
 
-## Example Use Cases
+# Use Cases
 
 - Executive research
 - Stakeholder mapping
 - Leadership analysis
-- Business development preparation
 - Market intelligence
+- Business development preparation
+- Industry research
 
 ---
 
-## Disclaimer
+# Data Source
+
+All information was collected from publicly available Brookfield leadership profile pages:
+
+https://www.brookfield.com/about-us/leadership
+
+---
+
+# Disclaimer
 
 This project is an independent software project and is not affiliated with, endorsed by, or sponsored by Brookfield.
 
-All information contained within the dataset was sourced from publicly accessible Brookfield web pages.
+All information included in this project was collected from publicly accessible sources and is provided for research and educational purposes only.
